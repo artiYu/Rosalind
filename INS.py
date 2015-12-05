@@ -15,5 +15,9 @@ def insertionSort(a, c=0):
 			k -= 1
 	return c
 
-with open(os.getcwd() + "/Data/test.txt", "w") as fw:
-	fw.write(str(insertionSort(a, c = 0)))
+def main():
+	with open(os.getcwd() + "/Data/test.txt", "w") as fw:
+		fw.write(str(insertionSort(a, c = 0)))
+
+if __name__ == '__main__':
+	main()
