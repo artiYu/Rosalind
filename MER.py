@@ -9,8 +9,18 @@ with open(os.getcwd() + "/Data/rosalind_mer.txt", "r") as fr:
 def Merge(a, b):
 	return sorted(a + b)
 
+def MergeImplement(a, n, b, m):
+	c = []*(n+m)
+	while a and b:
+		if a[0] < b[0]:
+			c.append(a.pop(0))
+		else:
+			c.append(b.pop(0))
+	return c + a + b
+
+
 def main():
-	c = Merge(a, b)
+	c = MergeImplement(a, n, b, m)
 	with open(os.getcwd() + "/Data/test.txt", "w") as fw:
 		fw.write(' '.join(map(str, c)))
 
