@@ -1,4 +1,5 @@
 import os
+from string import maketrans
 
 def compute_revc(rev):
 	revc = ""
@@ -14,6 +15,10 @@ def compute_revc(rev):
 		else:
 			revc += char
 	return revc
+
+def complement_strand_dna(rev):
+	trans = maketrans('ACGT', 'TGCA')
+	return rev.translate(trans)[::-1]
 	
 	
 def main():
@@ -21,9 +26,11 @@ def main():
 		rev = str(input_file.readline())
 	
 	revc = compute_revc(rev)
+	rev2 = complement_strand_dna(rev)
+	print revc == rev2
 
 	with open(os.getcwd() + "\\Data\\test.txt", "w") as output_file:
-		output_file.write(revc)
+		output_file.write(rev2)
 
 if __name__ == '__main__':
 	main()
